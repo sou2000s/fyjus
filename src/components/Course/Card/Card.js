@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Card = ({course}) => {
     return (
@@ -7,9 +8,9 @@ const Card = ({course}) => {
   <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{course.name}</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <p>{course.courseId}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+      <Link to={`/courseDetails/${course.courseId}`} className="btn btn-primary">Details</Link>
     </div>
   </div>
 </div>
