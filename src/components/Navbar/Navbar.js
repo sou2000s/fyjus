@@ -13,6 +13,8 @@ const Navbar = () => {
 
             <Link to='/'>Home</Link>
             <Link className='ml-3' to='/course'>Course</Link>
+            <Link className='ml-3' to='/register'>Register</Link>
+            <Link className='ml-3' to='/login'>Login</Link>
             </ul> 
         </div>
     );

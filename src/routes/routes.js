@@ -5,6 +5,8 @@ import Course from "../components/Course/Course";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 
 import Home from "../components/Home/Home";
+import Login from "../components/Login/Login";
+import Register from "../components/Register/Register";
 
 import Mainlayout from "../Mainlayout/Mainlayout";
 
@@ -17,6 +19,14 @@ const routes = createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
                 
+            },
+            {
+                path:"/register",
+                element:<Register/>
+            },
+            {
+                path:"/login",
+                element:<Login/>
             },
             {
                 path:'/course',
