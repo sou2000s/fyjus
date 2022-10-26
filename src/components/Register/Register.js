@@ -2,9 +2,10 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-
+import {FcGoogle }  from "react-icons/fc";
+import {AiFillGithub} from "react-icons/ai"
 const Register = () => {
- const {createUser} = useContext(AuthContext);
+ const {createUser , handleGoogleAuthantiCation , handleGithubAuthenTication} = useContext(AuthContext);
  const navigate = useNavigate();
 
 //    function
@@ -25,6 +26,20 @@ const Register = () => {
         }) 
         .catch(error => console.error(error))
     }
+  
+  //  google sign up 
+   const handleGoogleSignUp = () => {
+    handleGoogleAuthantiCation()
+    .then(()=>{navigate('/')})
+    .catch( error =>console.error(error) )
+
+   }
+
+   const handleGithubSignUp = () => {
+    handleGithubAuthenTication()
+    .then(()=>{navigate('/')})
+    .catch(error => console.error(error))
+   }
 
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -60,6 +75,10 @@ const Register = () => {
           <label className="label">
             <Link to="" className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
+        </div>
+        <div className='flex  justify-center'>
+         <FcGoogle onClick={handleGoogleSignUp} className='mr-3 text-2xl'></FcGoogle>
+        <AiFillGithub onClick={handleGithubSignUp} className='ml-3  text-2xl'></AiFillGithub>
         </div>
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Register</button>

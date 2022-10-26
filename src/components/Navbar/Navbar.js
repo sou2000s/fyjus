@@ -23,9 +23,18 @@ const Navbar = () => {
 
             <Link to='/'>Home</Link>
             <Link className='ml-3' to='/course'>Course</Link>
+            {
+              user?.uid ?    <Link className='ml-3' onClick={handleLogOut}>Log Out</Link> 
+              :  
+            <>
             <Link className='ml-3' to='/register'>Register</Link>
             <Link className='ml-3' to='/login'>Login</Link>
-            <Link className='ml-3' onClick={handleLogOut}>Log Out</Link>
+            </>
+            }
+            <Link className='ml-3'>Blog</Link>
+            <Link className='ml-3'>FAQ</Link>
+           
+           
             
                {
                 user?.email && <p>{user.email}</p>
