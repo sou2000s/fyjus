@@ -3,7 +3,9 @@ import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import {FcGoogle} from "react-icons/fc"
+import { useState } from 'react';
 const Login = () => {
+    const [errors , setErrors]  = useState()
     const {handleGoogleAuthantiCation , login} = useContext(AuthContext)
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"  
@@ -20,9 +22,11 @@ const Login = () => {
     login(email , password) 
     .then(res =>
       
-         navigate(from, { replace: true })
+      { form.reset()
+        navigate(from, { replace: true })
+      setErrors("")}
          )
-    .catch(error => console.error(error))
+    .catch(error => setErrors(error.message))
    } 
 
 
@@ -56,8 +60,10 @@ const Login = () => {
           </label>
           <input type="password" placeholder="password" name='password' className="input input-bordered" />
           <label className="label">
-            <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+            <Link  className="label-text-alt link link-hover">Forgot password?</Link>
+            <p  className="label-text-alt ml-7 link link-hover">Dont have Account? <Link to='/register'>Register</Link> </p>
           </label>
+          <p className='text-red-700'>{errors}</p>
         </div>
         <FcGoogle onClick={handleGoogleLogin}></FcGoogle>
         <div className="form-control mt-6">

@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import {FcGoogle }  from "react-icons/fc";
 import {AiFillGithub} from "react-icons/ai"
+import { useState } from 'react';
 const Register = () => {
- const {createUser , handleGoogleAuthantiCation , handleGithubAuthenTication} = useContext(AuthContext);
+ const {createUser , handleGoogleAuthantiCation , handleGithubAuthenTication , setUserProfile,userNameAndPhoto} = useContext(AuthContext);
  const navigate = useNavigate();
-
+ const [error ,setErorr] = useState("")
 //    function
     const handleRegister = e => {
         e.preventDefault();
@@ -22,23 +23,30 @@ const Register = () => {
         createUser(email,password)
         .then(res => {
             console.log(res.user);
-           navigate('/')
+            userNameAndPhoto(name , PhotoURL)
+            .then((res)=>{
+             
+              setUserProfile(name  , PhotoURL)
+              setErorr("")
+              navigate('/')
+            })
+            .catch(error => setErorr(error.message))
         }) 
-        .catch(error => console.error(error))
+        .catch(error => setErorr(error.message))
     }
   
   //  google sign up 
    const handleGoogleSignUp = () => {
     handleGoogleAuthantiCation()
     .then(()=>{navigate('/')})
-    .catch( error =>console.error(error) )
+    .catch( error =>setErorr(error.message) )
 
    }
 
    const handleGithubSignUp = () => {
     handleGithubAuthenTication()
     .then(()=>{navigate('/')})
-    .catch(error => console.error(error))
+    .catch(error => setErorr(error.message))
    }
 
     return (
@@ -75,6 +83,7 @@ const Register = () => {
           <label className="label">
             <Link to="" className="label-text-alt link link-hover">Forgot password?</Link>
           </label>
+          <p className='text-red-700'>{error}</p>
         </div>
         <div className='flex  justify-center'>
          <FcGoogle onClick={handleGoogleSignUp} className='mr-3 text-2xl'></FcGoogle>
