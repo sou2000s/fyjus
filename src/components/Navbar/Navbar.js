@@ -2,9 +2,13 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import BrandImage from "../../assets/Name.png";
+import {AiOutlineClose , AiOutlineMenu} from "react-icons/ai"
+
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
+  
 
   const handleLogOut = () => {
     logOut()
@@ -13,28 +17,25 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-orange-500 text-white  md:flex justify-around">
+    <div className="bg-orange-500 text-white h-20 md:p-5  md:flex  ">
       <div className="flex">
-        <h1>Name</h1>
-        <h1 className="ml-5">logo</h1>
+        <h1 className="text-2xl">Fyjus</h1>
+        <img src={BrandImage} className="rounded-xl w-9 ml-3" alt="" />
       </div>
-      
-      <ul>
-      <div className="avatar ">
-            <div className="w-8 rounded-full">
-              {user?.photoURL && <img src={user.photoURL} alt="" />}
-            
-              
-            
-            </div>
-          </div>
-          
-        
-        <Link to="/">Home</Link>
+
+      <ul className=" md:flex">
+        {user?.photoURL && (
+          <Link className="">
+            <img src={user?.photoURL} alt="" className="w-10 h-10 rounded-xl" />
+          </Link>
+        )}
+        <Link to="/" className="ml-3">
+          Home
+        </Link>
         <Link className="ml-3" to="/course">
           Course
         </Link>
-      
+
         {user?.uid ? (
           <Link className="ml-3" onClick={handleLogOut}>
             Log Out
@@ -52,7 +53,10 @@ const Navbar = () => {
         <Link className="ml-3">Blog</Link>
         <Link className="ml-3">FAQ</Link>
       </ul>
-   
+      <div className="md:hidden">
+          <AiOutlineMenu></AiOutlineMenu>
+          <AiOutlineClose></AiOutlineClose>
+      </div>
     </div>
   );
 };
