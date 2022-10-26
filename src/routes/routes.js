@@ -31,21 +31,21 @@ const routes = createBrowserRouter([
             },
             {
                 path:'/course',
-                loader: ()=> fetch("http://localhost:5000/categories"),
+                loader: ()=> fetch("https://education-app-server.vercel.app/categories"),
                 element:<Course></Course>,
                 children: [
                     {
                         path:"course/:id",
                       
                         loader: ({params}) =>{
-                            return fetch(`http://localhost:5000/category/${params.id}`)
+                            return fetch(`https://education-app-server.vercel.app/category/${params.id}`)
                         }, 
                         element:<CategoryCourses></CategoryCourses>
                     },
                     {
                         path:"/course",
                         loader: () =>{
-                            return fetch(`http://localhost:5000/category/1`)
+                            return fetch(`https://education-app-server.vercel.app/category/1`)
                         }, 
                         element:<CategoryCourses></CategoryCourses>
                     },
@@ -54,14 +54,14 @@ const routes = createBrowserRouter([
             {
                 path:"/coursedetails/:id",
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://education-app-server.vercel.app/course/${params.id}`)
                 },
                 element:<CourseDetails></CourseDetails>
             },
             {
                 path:"/checkout/:id",
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/course/${params.id}`)
+                    return fetch(`https://education-app-server.vercel.app/course/${params.id}`)
                 },
                 element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             }

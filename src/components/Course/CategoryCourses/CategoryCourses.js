@@ -6,7 +6,7 @@ const CategoryCourses = () => {
     const courses = useLoaderData(); 
     console.log(courses);
     return (
-        <div className='grid grid-cols-4 gap-7 mt-9'>
+        <div className='grid md:grid-cols-4 gap-7 mt-9'>
               {
                 courses.map(course => <Card course={course}></Card>)
               }

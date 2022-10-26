@@ -7,6 +7,7 @@ const CheckOut = () => {
     return (
         <div>
               {course.name}
+              {course.detail[0].duration}
         </div>
     );
 };
