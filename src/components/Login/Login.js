@@ -4,9 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import {FcGoogle} from "react-icons/fc"
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 const Login = () => {
     const [errors , setErrors]  = useState()
-    const {handleGoogleAuthantiCation , login} = useContext(AuthContext)
+    const {handleGoogleAuthantiCation , user,login} = useContext(AuthContext)
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"  
     const navigate = useNavigate()
@@ -23,6 +24,8 @@ const Login = () => {
     .then(res =>
       
       { form.reset()
+        // console.log(res.user);
+        toast.success("login success full")
         navigate(from, { replace: true })
       setErrors("")}
          )

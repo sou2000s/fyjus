@@ -5,6 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 import {FcGoogle }  from "react-icons/fc";
 import {AiFillGithub} from "react-icons/ai"
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 const Register = () => {
  const {createUser , handleGoogleAuthantiCation , handleGithubAuthenTication , setUserProfile,userNameAndPhoto} = useContext(AuthContext);
  const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Register = () => {
             
              
               // setUserProfile(name  , PhotoURL)
+              toast.success(`welcome ${name}`  )
               setErorr("")
               navigate('/')
               

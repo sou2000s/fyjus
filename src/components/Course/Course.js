@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
-
+import {BiCategory} from "react-icons/bi"
 const Course = () => {
   const categoties = useLoaderData();
   const [selectCategory , setSelectedCategory] = useState("");
@@ -32,7 +32,7 @@ const Course = () => {
         
       </div>
       <div className="dropdown md:ml-0 ml-20 md:hidden">
-  <label tabIndex={0} className="btn m-1">Select Category</label>
+  <label tabIndex={0} className="">Select Category<BiCategory/> </label>
    <p className="md:hidden ml-6 text-xl">{selectCategory}</p>
   <ul tabIndex={0} className=" dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-52">
     {
@@ -45,7 +45,7 @@ const Course = () => {
 </div> 
     
 
-      <div className="md:ml-20 ">
+      <div className="md:ml-20 ml-5 ">
         <Outlet></Outlet>
       </div>
     </div>
