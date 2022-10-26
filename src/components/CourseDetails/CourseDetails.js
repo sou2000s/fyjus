@@ -18,7 +18,7 @@ const CourseDetails = () => {
           <p>Duration: {detail[0].duration}</p>
           <p>
             {detail[0].project ? (
-              <span>Projects:{detail[0].project}</span>
+              <span>Projects: {detail[0].project}</span>
             ) : (
               <span>Subjects: {detail[0].sucject_Cover}</span>
             )}
