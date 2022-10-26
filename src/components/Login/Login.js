@@ -2,12 +2,13 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import {FcGoogle} from "react-icons/fc"
+import {FcGoogle  } from "react-icons/fc";
+import {BsGithub} from "react-icons/bs" 
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 const Login = () => {
     const [errors , setErrors]  = useState()
-    const {handleGoogleAuthantiCation , user,login} = useContext(AuthContext)
+    const {handleGoogleAuthantiCation ,handleGithubAuthenTication ,user,login} = useContext(AuthContext)
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"  
     const navigate = useNavigate()
@@ -37,17 +38,25 @@ const Login = () => {
     const handleGoogleLogin = () => {
         handleGoogleAuthantiCation()
         .then(res => {
-            console.log(res.user);
+        
+            navigate(from, { replace: true })
         })
-        .catch(error => console.error(error))
+        .catch(error =>setErrors(error.message))
+    }
+
+    // git hub
+     
+    const handleGitHubLogin = () =>{
+      handleGithubAuthenTication()
+      .then(()=>{ navigate(from, { replace: true })})
+      .catch(error =>setErrors(error.message))
     }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="text-5xl font-bold">Login</h1>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin} className="card-body">
@@ -68,7 +77,10 @@ const Login = () => {
           </label>
           <p className='text-red-700'>{errors}</p>
         </div>
-        <FcGoogle onClick={handleGoogleLogin}></FcGoogle>
+        <div className='flex justify-center'>
+        <FcGoogle onClick={handleGoogleLogin} className=" text-2xl"/>
+        <BsGithub onClick={handleGitHubLogin} className=" text-2xl ml-2"/>
+        </div>
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>
         </div>

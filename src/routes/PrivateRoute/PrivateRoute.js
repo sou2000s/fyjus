@@ -10,10 +10,10 @@ const PrivateRoute = ({children}) => {
         return <div>loafing....</div>
     }
 
-    if(user && user.email){
-        return children
+    if(!user ){
+        return <Navigate to='/login' state={{ from: location }} replace ></Navigate>
     }
-    return <Navigate to='/login' state={{ from: location }} replace ></Navigate>
+    return children;
 
 };
 
