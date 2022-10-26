@@ -10,7 +10,7 @@ const Course = () => {
   };
   return (
 
-   <div>
+   <div className="bg-[#daa877]">
          <h1 className="text-center text-4xl mb-6">Courses</h1>
     <div className="md:flex ">
   

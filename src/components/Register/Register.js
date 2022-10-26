@@ -23,18 +23,31 @@ const Register = () => {
         createUser(email,password)
         .then(res => {
             console.log(res.user);
-            userNameAndPhoto(name , PhotoURL)
-            .then((res)=>{
+            hansleUserNameAndPhoto(name , PhotoURL)
+            
              
-              setUserProfile(name  , PhotoURL)
+              // setUserProfile(name  , PhotoURL)
               setErorr("")
               navigate('/')
-            })
-            .catch(error => setErorr(error.message))
+              
+            
         }) 
         .catch(error => setErorr(error.message))
     }
   
+ const hansleUserNameAndPhoto = (name  , photoURL) => {
+  const profile = {
+    displayName: name,
+    photoURL: photoURL,
+  }
+   userNameAndPhoto(profile)
+   .then((res)=>{
+    // console.log(res.user)
+    setUserProfile(profile)      
+  })
+   .catch(error => console.error(error))
+ }
+
   //  google sign up 
    const handleGoogleSignUp = () => {
     handleGoogleAuthantiCation()
