@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import BrandImage from "../../assets/Name.png";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -11,6 +11,9 @@ const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const [theme , setTheme] = useState(true);
+  let activeStyle = {
+    textDecoration: "underline",
+  };
 
   const handleTheme = () => {
     setTheme(!theme)
@@ -54,14 +57,19 @@ const Navbar = () => {
           </li>
         )}
         <li>
-          <Link to="/" className="ml-3">
+          <NavLink to="/home" className="ml-3"
+           style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="ml-3" to="/course">
-            Course
-          </Link>
+          <NavLink className="ml-3" to="/course" style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            Courses
+          </NavLink>
         </li>
 
         {user?.uid ? (
@@ -73,23 +81,31 @@ const Navbar = () => {
         ) : (
           <>
             <li>
-              <Link className="ml-3" to="/register">
+              <NavLink className="ml-3" to="/register" style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                 Register
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="ml-3" to="/login">
+              <NavLink className="ml-3" to="/login" style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
                 Login
-              </Link>
+              </NavLink>
             </li>
           </>
         )}
         <li>
           {" "}
-          <Link className="ml-3" to='/blog'>Blog</Link>
+          <NavLink className="ml-3" to='/blog' style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>Blog</NavLink>
         </li>
         <li>
-          <Link className="ml-3">FAQ</Link>
+          <NavLink className="ml-3"  to='/faq'  style={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>FAQ</NavLink>
         </li>
         <li onClick={handleTheme} className="text-xl ml-3">
            {theme ? <MdOutlineLightMode /> : <MdDarkMode  />}

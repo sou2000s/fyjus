@@ -80,7 +80,7 @@ const Login = () => {
         </div>
         <div className='flex justify-center'>
         <FcGoogle onClick={handleGoogleLogin} className=" text-2xl"/>
-        <BsGithub onClick={handleGitHubLogin} className=" text-2xl ml-2"/>
+        <BsGithub onClick={handleGitHubLogin} className=" text-2xl ml-4"/>
         </div>
         <div className="form-control mt-6">
           <button type='submit' className="btn btn-primary">Login</button>

@@ -4,6 +4,7 @@ import CheckOut from "../components/CheckOut/CheckOut";
 import CategoryCourses from "../components/Course/CategoryCourses/CategoryCourses";
 import Course from "../components/Course/Course";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
+import FAQ from "../components/FAQ/FAQ";
 
 import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
@@ -22,6 +23,12 @@ const routes = createBrowserRouter([
                 element:<Home></Home>
                 
             },
+            {
+                path:'/home',
+                element:<Home></Home>
+                
+            },
+            
             {
                 path:"/register",
                 element:<Register/>
@@ -69,6 +76,10 @@ const routes = createBrowserRouter([
             {
                 path:"/blog",
                 element:<Blog></Blog>
+            },
+            {
+                path:'/faq',
+                element:<FAQ/>
             }
         ]
     },
