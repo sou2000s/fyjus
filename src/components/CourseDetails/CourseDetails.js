@@ -14,11 +14,11 @@ const CourseDetails = () => {
     doc.setFont("" , "bold")
     doc.text(60 , 60 , "Course name:" )
     doc.text(60 , 80 , "Price:" )
-    doc.text(60 , 100 , "Duration:" )
+    
     doc.setFont("" , "normal")
     doc.text(150 , 60 ,`${course.name}`)
-    doc.text(100 , 80 ,`${course.price}`)
-    doc.text(140 , 100 ,`${detail[0].duration}`)
+    doc.text(100 , 80 ,`${detail[0].price}`)
+   
     doc.save(`${course.name}.pdf`)
   }
   return (
@@ -30,7 +30,7 @@ const CourseDetails = () => {
       </div>
       <div className=" mx-auto mt-8 md:w-96 w-60 bg-base-100 shadow-xl">
         <figure>
-          <img src={course.image} className="md:w-full w-44" alt="Shoes" />
+          <img src={course.image} className="w-full " alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{course.name}</h2>

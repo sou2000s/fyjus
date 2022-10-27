@@ -16,6 +16,7 @@ const Course = () => {
     <div className="md:flex ">
   
       <div className=" mt-8   md:block hidden  h-screen text-black">
+      <h1 className="text-4xl ml-9 mb-9 md:block hidden">Categories</h1>
        <div className="">
            {categoties.map((category) => (
           <NavLink
