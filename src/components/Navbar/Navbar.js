@@ -42,11 +42,14 @@ const Navbar = () => {
           <li>
             {" "}
             <Link className="">
+            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+
+        
               <img
                 src={user?.photoURL}
                 alt=""
                 className="w-10 h-10 rounded-xl"
-              />
+              />    </div>
             </Link>
           </li>
         )}
@@ -83,7 +86,7 @@ const Navbar = () => {
         )}
         <li>
           {" "}
-          <Link className="ml-3">Blog</Link>
+          <Link className="ml-3" to='/blog'>Blog</Link>
         </li>
         <li>
           <Link className="ml-3">FAQ</Link>
@@ -95,6 +98,8 @@ const Navbar = () => {
       <div className="md:hidden mt-5 text-xl text-black" onClick={handleMenuBar}>
         {open ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>
+
+   
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../components/Blog/Blog";
 import CheckOut from "../components/CheckOut/CheckOut";
 import CategoryCourses from "../components/Course/CategoryCourses/CategoryCourses";
 import Course from "../components/Course/Course";
@@ -64,8 +65,16 @@ const routes = createBrowserRouter([
                     return fetch(`https://education-app-server.vercel.app/course/${params.id}`)
                 },
                 element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+            },
+            {
+                path:"/blog",
+                element:<Blog></Blog>
             }
         ]
+    },
+    {
+        path:"*",
+        element:<p>404 Page not  found</p>
     }
 ])
 export default routes;
