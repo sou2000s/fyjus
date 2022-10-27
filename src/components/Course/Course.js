@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import {BiCategory} from "react-icons/bi"
+import Footer from "../Footer/Footer";
 const Course = () => {
   const categoties = useLoaderData();
   const [selectCategory , setSelectedCategory] = useState("");
@@ -49,7 +50,9 @@ const Course = () => {
         <Outlet></Outlet>
       </div>
     </div>
-
+    
+       <Footer></Footer>
+     
     </div>
   );
 };

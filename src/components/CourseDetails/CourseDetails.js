@@ -1,6 +1,7 @@
 import jsPDF from "jspdf";
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const CourseDetails = () => {
   const course = useLoaderData();
@@ -56,7 +57,8 @@ const CourseDetails = () => {
           </div>
         </div>
       </div>
-
+     
+      <Footer></Footer>
     </div>
   );
 };

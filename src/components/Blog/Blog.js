@@ -1,8 +1,12 @@
 import React from "react";
+import Footer from "../Footer/Footer";
 
 const Blog = () => {
   return (
-    <div className="grid md:grid-cols-3 mt-4 md:ml-10 gap-10">
+    <div >
+    <div className="grid md:grid-cols-3 mt-4 md:ml-10 gap-10 mb-7">
+
+
       <div className="md:w-96  border-2 p-2 border-sky-500">
         <h1 className="text-2xl">what is cors?</h1>
         <p>
@@ -63,7 +67,8 @@ const Blog = () => {
              </p> 
          </p> 
       </div>
-     
+      </div>
+      <Footer/>
     </div>
   );
 };
