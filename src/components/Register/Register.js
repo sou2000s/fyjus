@@ -101,7 +101,7 @@ const Register = () => {
           </label>
           <p className='text-red-700'>{error}</p>
         </div>
-        <div className='flex  justify-center'>
+        <div className='flex  justify-center hover:cursor-pointer'>
          <FcGoogle onClick={handleGoogleSignUp} className='mr-3 text-2xl'></FcGoogle>
         <AiFillGithub onClick={handleGithubSignUp} className='ml-3  text-2xl'></AiFillGithub>
         </div>

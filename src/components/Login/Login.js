@@ -87,7 +87,7 @@ const Login = () => {
           </label>
           <p className='text-red-700'>{errors}</p>
         </div>
-        <div className='flex justify-center'>
+        <div className='flex justify-center hover:cursor-pointer'>
         <FcGoogle onClick={handleGoogleLogin} className=" text-2xl"/>
         <BsGithub onClick={handleGitHubLogin} className=" text-2xl ml-4"/>
         </div>
