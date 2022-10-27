@@ -57,7 +57,7 @@ const Navbar = () => {
           </li>
         )}
         <li>
-          <NavLink to="/home" className="ml-3"
+          <NavLink to="/home" className="ml-3 "
            style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>

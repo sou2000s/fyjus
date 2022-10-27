@@ -8,7 +8,8 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 const Login = () => {
     const [errors , setErrors]  = useState()
-    const {handleGoogleAuthantiCation ,handleGithubAuthenTication ,user,login} = useContext(AuthContext)
+    const [email , setEmail] = useState("")
+    const {handleGoogleAuthantiCation ,handleGithubAuthenTication ,user, passwordReset,login} = useContext(AuthContext)
     const location = useLocation()
     const from = location.state?.from?.pathname || "/"  
     const navigate = useNavigate()
@@ -51,6 +52,14 @@ const Login = () => {
       .then(()=>{ navigate(from, { replace: true })})
       .catch(error =>setErrors(error.message))
     }
+
+    const handlePasswordReset = () => {
+      passwordReset(email)
+      .then(()=>{
+        toast.success("a email sned to your email , Please check")
+      })
+      .catch(error => setErrors(error.message))
+    }
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -64,15 +73,15 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" name='email' className="input input-bordered" />
+          <input type="email" placeholder="email" onChange={(e)=>setEmail(e.target.value)} name='email' className="input input-bordered"  required/>
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" name='password' className="input input-bordered" />
+          <input type="password" placeholder="password" name='password' className="input input-bordered" required />
           <label className="label">
-            <Link  className="label-text-alt link link-hover">Forgot password?</Link>
+            <Link  className="label-text-alt link link-hover" onClick={handlePasswordReset}>Forgot password?</Link>
             
             <p  className="label-text-alt ml-7 link link-hover">Dont have Account? <Link to='/register'>Register</Link> </p>
           </label>
