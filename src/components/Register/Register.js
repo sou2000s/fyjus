@@ -97,6 +97,7 @@ const Register = () => {
           <input type="password" name='password' placeholder="password" className="input input-bordered" />
           <label className="label">
             <Link to="" className="label-text-alt link link-hover">Forgot password?</Link>
+            <Link  className="label-text-alt link link-hover" to="/login">Allready have accout?Login</Link>
           </label>
           <p className='text-red-700'>{error}</p>
         </div>

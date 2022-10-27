@@ -73,6 +73,7 @@ const Login = () => {
           <input type="password" placeholder="password" name='password' className="input input-bordered" />
           <label className="label">
             <Link  className="label-text-alt link link-hover">Forgot password?</Link>
+            
             <p  className="label-text-alt ml-7 link link-hover">Dont have Account? <Link to='/register'>Register</Link> </p>
           </label>
           <p className='text-red-700'>{errors}</p>
