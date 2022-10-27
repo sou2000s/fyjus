@@ -83,7 +83,7 @@ const Login = () => {
           <label className="label">
             <Link  className="label-text-alt link link-hover" onClick={handlePasswordReset}>Forgot password?</Link>
             
-            <p  className="label-text-alt ml-7 link link-hover">Dont have Account? <Link to='/register'>Register</Link> </p>
+            <Link  className="label-text-alt ml-7 link link-hover" to='/register'>Dont have Account?Register</Link> 
           </label>
           <p className='text-red-700'>{errors}</p>
         </div>
