@@ -96,20 +96,20 @@ const Navbar = () => {
             </li>
           </>
         )}
-        <li>
+        {/* <li>
           {" "}
           <NavLink className="ml-3" to='/blog' style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>Blog</NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <NavLink className="ml-3"  to='/faq'  style={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>FAQ</NavLink>
-        </li>
-        <li onClick={handleTheme} className="text-xl ml-3">
+        </li> */}
+        {/* <li onClick={handleTheme} className="text-xl ml-3">
            {theme ? <MdOutlineLightMode /> : <MdDarkMode  />}
-        </li>
+        </li> */}
       </ul>
       <div className="md:hidden mt-5 text-xl text-black" onClick={handleMenuBar}>
         {open ? <AiOutlineClose /> : <AiOutlineMenu />}
